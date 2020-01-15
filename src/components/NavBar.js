@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 
 
 
-// Context
+// Context api
 import {UserContext} from '../context/UserContext'
 
+// Navigation bar for the app
 const NavBar = () => {
 
   const context =  useContext(UserContext)

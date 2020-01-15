@@ -1,5 +1,5 @@
 import gql from 'graphql-tag'
-
+// query that fetch all news
 export const GET_NEWS_QUERY  = gql`
 {
      getNews {

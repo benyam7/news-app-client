@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 
 
-
+// Increases Views of news 
 export default function LikeButton({ user , news : {id, likeCount, likes}}) {
     const [liked, setLiked] = useState(false)
     // const { user } = useContext(UserContext)
@@ -51,6 +51,7 @@ export default function LikeButton({ user , news : {id, likeCount, likes}}) {
     )
 }
 
+// Mutation that toggles a number of views or likes
 const LIKE_NEWS = gql `
 
     mutation likeNews($newsId: ID!){

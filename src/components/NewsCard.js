@@ -3,10 +3,13 @@ import moment from 'moment'
 import { Card, Divider, Icon, Label, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-
+// pages
 import {UserContext} from '../context/UserContext'
+//Components
 import LikeButton from '../components/LikeButton'
 import DeleteButton from './DeleteButton'
+
+//Defines how news are displayed
 function NewsCard(props){
     // const {body, createdAt, id, userName, likeCount,likes, commentCount } = props.news
 

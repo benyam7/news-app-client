@@ -4,7 +4,7 @@ import moment from 'moment'
 import DeleteButton from './DeleteButton'
 
 
-
+// Diplays comments
 export default function CommentList({comments, user, newsId}) {
   console.log("cmnts in cmnt list",comments)
   return(

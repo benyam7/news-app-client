@@ -1,19 +1,19 @@
 import React, {useContext} from 'react'
 import gql from 'graphql-tag'
 import {useQuery} from '@apollo/react-hooks'
-import {Grid, Image, Comment, Header, Card, Button, Icon, Label } from 'semantic-ui-react'
+import {Grid, Comment, Header, Card, Button, Icon, Label } from 'semantic-ui-react'
 
 import moment from 'moment'
+// components
 import DeleteButton from '../components/DeleteButton'
-
 import LikeButton from '../components/LikeButton'
 import CommentList from '../components/CommentList'
-
+// context api
 import {UserContext} from '../context/UserContext'
 import AddComment from '../components/AddComment'
 
 
-
+// single news page
 export default function SingleNews(props) {
     
     const newsId = props.match.params.newsId;

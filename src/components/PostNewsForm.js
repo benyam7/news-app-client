@@ -2,8 +2,12 @@ import React, {useState} from 'react'
 import { Form, TextArea, Button } from 'semantic-ui-react'
 import gql from 'graphql-tag'
 import {useMutation } from '@apollo/react-hooks'
+
+// fetchs all news
 import {GET_NEWS_QUERY} from '../gqlQueries/queries'
 
+
+// gives functionality to post a news for an admin
 const PostNewsForm = () => {
     let errData = ''
     const [values, setValues] = useState({
@@ -98,6 +102,7 @@ return(
  
 }
 
+// mutation that posts news
 const POST_NEWS = gql`
     
     mutation post(

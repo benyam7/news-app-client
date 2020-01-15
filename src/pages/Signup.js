@@ -7,7 +7,7 @@ import {useMutation } from '@apollo/react-hooks'
 // Context api thing
 import {UserContext} from '../context/UserContext'
 
-
+// signup page
 function Signup(props) {
     const context = useContext(UserContext)
     // initial values for user

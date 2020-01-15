@@ -6,8 +6,9 @@ import { UserContext } from '../context/UserContext'
 import NewsCard from '../components/NewsCard'
 import PostNewsForm from '../components/PostNewsForm'
 
-
+// Home Page 
 function Home() {
+   
    const {user} = useContext(UserContext)
    let news = ''
     const {loading, data } = useQuery(GET_NEWS_QUERY);

@@ -6,7 +6,7 @@ import {useMutation} from '@apollo/react-hooks'
 
 
 
-
+// Adds a comment
 export default function AddComment({newsId}) {
 
     const [body, setBody] = useState('')

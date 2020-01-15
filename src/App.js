@@ -18,7 +18,7 @@ import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import AuthRoute from './components/AuthRoute'
 
-//Context api thing
+//Context api 
 import  {AuthProvider}  from './context/AuthProvider'
 import SingleNews from './pages/SingleNews';
 

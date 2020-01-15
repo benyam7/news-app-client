@@ -2,16 +2,18 @@ import React, {useReducer} from 'react'
 import {LOGIN, LOGOUT} from './types' 
 import {UserContext} from './UserContext'
 import decoder from 'jwt-decode'
+// context api
 import {userAuthReducer} from './UserReducer'
+
+
 
 const initState = {
     user : null
 }
 
 // check if there is token in local storage and not expried
-
 if(localStorage.getItem('token')){
-
+    
     const decodedToken = decoder(localStorage.getItem('token'))
     console.log(decodedToken)
     decodedToken.exp * 1000 < Date.now() ?  // check if token expired
@@ -23,8 +25,7 @@ if(localStorage.getItem('token')){
 
 
 }
-
-
+// AuthProvider component
 function AuthProvider(props){
     const [state, dispatch] = useReducer(userAuthReducer, initState)
 

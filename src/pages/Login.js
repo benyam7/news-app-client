@@ -4,9 +4,10 @@ import gql from 'graphql-tag'
 import {useMutation } from '@apollo/react-hooks'
 
 
-// Context api thing
+// Context api
 import {UserContext} from '../context/UserContext'
 
+// login page
 function Login(props) {
     const context = useContext(UserContext)
 
