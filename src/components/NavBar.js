@@ -24,11 +24,18 @@ const NavBar = () => {
     <div className = "ui container fixed-menu">
  
   
-    <Header as='h2' icon textAlign='center' attached = "top" >
+    {/* <Header as='h2' icon textAlign='center' attached = "top" >
+      <Icon name='newspaper alternate' style={{fontSize: 40, color: '#704847'}} />
+      <Header.Content>News Headlines</Header.Content>
+    </Header> */}
+    <Segment >
+      <div className = 'news-nav-bar'>
+      <Header as='h2' icon textAlign='center' style = {{top: '2%'}}>
       <Icon name='newspaper alternate' style={{fontSize: 40, color: '#704847'}} />
       <Header.Content>News Headlines</Header.Content>
     </Header>
-    <Segment attached>
+      </div>
+    
     <Menu  secondary  fluid>
   
   <Menu.Item

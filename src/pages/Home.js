@@ -18,7 +18,7 @@ function Home() {
     return (  
        
            <div className ={user ? '' : "headlines-container"} >
-                <Grid column = {1}  style = {{marginLeft : 20}} >
+                <Grid column = {1}  style = {{marginLeft : '3%'}} >
                 {
                 user ? user.userName === 'admin' && 
                 (
@@ -46,7 +46,7 @@ function Home() {
                            
                             {
                             
-                              const c = <Grid.Row key = {n.key}  className = {i === 0 ? 'ui container news-card-first' : 'ui container news-card-rest'}>
+                              const c = <Grid.Row key = {n.key} style = {{marginBottom: !user && '4%'}}  className = {i === 0 ? 'ui container news-card-first' : 'ui container news-card-rest'}>
                               
                               <NewsCard news = { n } />
                

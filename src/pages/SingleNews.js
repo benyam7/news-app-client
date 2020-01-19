@@ -48,7 +48,7 @@ export default function SingleNews(props) {
 const {id, body, createdAt,title, userName, comments, likes, likeCount, commentCount} = singleNewsData.data
         singleNews = (
             <Grid >
-            <Grid.Row style  = {{paddingTop: 244}}>
+            <Grid.Row style  = {{paddingTop: '10%'}}>
               
               <Grid.Column width={10} className = "ui container">
                 <Card fluid>
