@@ -1,6 +1,6 @@
 import {LOGIN, LOGOUT} from './types' 
 
-// AuthorizedUserReducer 
+
 function userAuthReducer(state,action) {
     switch(action.type){
         case LOGIN:

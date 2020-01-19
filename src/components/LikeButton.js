@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 
 
-// Increases Views of news 
+
 export default function LikeButton({ user , news : {id, likeCount, likes}}) {
     const [liked, setLiked] = useState(false)
     // const { user } = useContext(UserContext)
@@ -26,17 +26,17 @@ export default function LikeButton({ user , news : {id, likeCount, likes}}) {
     
     const LikeButton = user ? (
         liked ? (
-            <Button color = "blue" onClick= {likePost} icon circular>
-                <Icon name = "eye" />
+            <Button  onClick= {likePost} primary icon circular color = 'instagram'>
+                <Icon name = "eye"/>
             </Button>
         ) : (
-            <Button color = "blue" basic onClick= {likePost} icon circular>
+            <Button  basic onClick= {likePost} icon circular>
                 <Icon name = "eye" />
             </Button>
         )
     ) :
     (
-        <Button as= {Link} to = "/login" color = "blue" basic icon circular>
+        <Button as= {Link} to = "/login"  basic icon circular>
             <Icon name = "eye" />
         </Button>
     )
@@ -44,14 +44,13 @@ export default function LikeButton({ user , news : {id, likeCount, likes}}) {
     return (
        <Button as = "div" labelPosition= "right"  size = "mini">
            {LikeButton}
-           <Label basic color = "blue" pointing = "left" circular >
+           <Label basic color='gray'  pointing = "left" circular >
                {likeCount}
            </Label>
        </Button>
     )
 }
 
-// Mutation that toggles a number of views or likes
 const LIKE_NEWS = gql `
 
     mutation likeNews($newsId: ID!){

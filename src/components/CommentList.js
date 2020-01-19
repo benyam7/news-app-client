@@ -4,15 +4,15 @@ import moment from 'moment'
 import DeleteButton from './DeleteButton'
 
 
-// Diplays comments
+
 export default function CommentList({comments, user, newsId}) {
-  console.log("cmnts in cmnt list",comments)
+  
   return(
     comments.map((comment) => (
       
       <Comment>
-            {user.userName === comment.userName && <DeleteButton commentId = {comment.id}  newsId = {newsId}/>}
-            <Comment.Avatar src='https://semantic-ui.com/images/avatar/small/elliot.jpg' />
+            {user && user.userName === comment.userName && <DeleteButton commentId = {comment.id}  newsId = {newsId}/>}
+            <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
             <Comment.Content>
               <Comment.Author as='a'>{comment.userName}</Comment.Author>
               <Comment.Metadata>

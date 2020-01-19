@@ -8,11 +8,11 @@ import { setContext } from 'apollo-link-context' // to automatically add authori
 import App from './App'
 
 
-// Heroku base url
+
 const httpLink = createHttpLink({
     uri: 'https://desolate-citadel-49962.herokuapp.com/'
 })
- // add authorization header from localy stored token dynamicaly for authorized operations  
+ 
 const authHeader = setContext(
     () => {
         const token = localStorage.getItem('token')
@@ -24,7 +24,7 @@ const authHeader = setContext(
     }
 )
 
-// wrap link and cache inside appolo clinet
+
 const client = new ApolloClient({
     link: authHeader.concat(httpLink),
     cache: new InMemoryCache()

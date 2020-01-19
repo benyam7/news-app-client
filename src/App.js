@@ -7,20 +7,20 @@ import 'semantic-ui-css/semantic.min.css'
 // the order is so we can override the sematic-css in our app.css
 import './App.css';
 
-
-
 // pages
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Home from './pages/Home'
 
+import SingleNews from './pages/SingleNews';
+
 //components
 import NavBar from './components/NavBar'
 import AuthRoute from './components/AuthRoute'
 
-//Context api 
+//Context api thing
 import  {AuthProvider}  from './context/AuthProvider'
-import SingleNews from './pages/SingleNews';
+
 
 function App() {
   return (
@@ -28,14 +28,15 @@ function App() {
 
       
     <BrowserRouter>
-      <NavBar />
-       <Route exact path = '/' component = {Home}></Route>
-      <AuthRoute exact path = '/login' component = {Login}></AuthRoute>)
-      <AuthRoute exact path = '/signup' component = {Signup}></AuthRoute>
-      <Route exact path = "/news/:newsId" component = {SingleNews}/>
+        <NavBar />
+        <Route exact path = '/' component = {Home}></Route>
+        <Route exact path = "/news/:newsId" component = {SingleNews}/>
+        <AuthRoute exact path = '/login' component = {Login}></AuthRoute>)
+        <AuthRoute exact path = '/signup' component = {Signup}></AuthRoute>
+          
     </BrowserRouter>
     </AuthProvider>
-  )
+  ) 
   }
 
 export default App;

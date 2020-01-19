@@ -1,5 +1,4 @@
 import { createContext } from 'react'
-// User context
 
 const UserContext = createContext(
     {

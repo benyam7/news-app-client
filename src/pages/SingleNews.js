@@ -1,24 +1,23 @@
 import React, {useContext} from 'react'
 import gql from 'graphql-tag'
 import {useQuery} from '@apollo/react-hooks'
-import {Grid, Comment, Header, Card, Button, Icon, Label } from 'semantic-ui-react'
+import {Grid,  Comment, Header, Card, Button, Icon, Label } from 'semantic-ui-react'
 
 import moment from 'moment'
-// components
 import DeleteButton from '../components/DeleteButton'
+
 import LikeButton from '../components/LikeButton'
 import CommentList from '../components/CommentList'
-// context api
+
 import {UserContext} from '../context/UserContext'
 import AddComment from '../components/AddComment'
 
 
-// single news page
+
 export default function SingleNews(props) {
     
     const newsId = props.match.params.newsId;
-    console.log(newsId)
-
+   
     let singleNewsData = ''
     const { data , loading} = useQuery(GET_SINGLE_NEWS,{
         variables : {
@@ -26,17 +25,14 @@ export default function SingleNews(props) {
         }
     })
 
-    console.log(`Loading: ${loading}`)
-    console.log(data)
-
+   
 
     const {user} = useContext(UserContext)
-    console.log("user", user)
+ 
  
     if(data){
         singleNewsData = { data : data.getSingleNews }
-        console.log(`singleNewsData :`)
-        console.log(singleNewsData)
+        
     }
 
     function deleteNews() {
@@ -45,19 +41,19 @@ export default function SingleNews(props) {
       }
 
     let singleNews;
-    if(!singleNewsData.data) {
-        singleNews = (<p>Loading news...</p>)
+    if(loading) {
+      singleNews = (<Icon loading name='spinner' style = {{top: 200}} />)
     }else{
 
-        const {id, body, createdAt,title, userName, comments, likes, likeCount, commentCount} = singleNewsData.data
+const {id, body, createdAt,title, userName, comments, likes, likeCount, commentCount} = singleNewsData.data
         singleNews = (
-            <Grid>
-            <Grid.Row>
+            <Grid >
+            <Grid.Row style  = {{paddingTop: 244}}>
               
               <Grid.Column width={10} className = "ui container">
                 <Card fluid>
                   <Card.Content>
-                    <Card.Header>{title}</Card.Header>
+                    <Card.Header className = "single-news-page">{title}</Card.Header>
                     <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
                     <Card.Description>{body}</Card.Description>
                   </Card.Content>
@@ -69,10 +65,10 @@ export default function SingleNews(props) {
                       labelPosition="right"
                       onClick={() => console.log('Comment on post')}
                     >
-                      <Button basic color="blue" circular icon>
+                      <Button basic  circular icon >
                         <Icon name="comments" />
                       </Button>
-                      <Label basic color="blue" pointing="left" circular>
+                      <Label basic  pointing="left" circular className = "single-news-page-comment">
                         {commentCount}
                       </Label>
                     </Button>
@@ -82,17 +78,18 @@ export default function SingleNews(props) {
                   </Card.Content>
                 </Card>
                 <AddComment newsId = {id}/>
-                <Comment.Group>
-        <Header as='h3' dividing>
+                <Comment.Group style = {{marginTop: 47}}>
+        <Header as='h3' dividing className = "single-news-page">
           {comments.length  > 0 ? 'Comments' : 'No Comments '}
             </Header>
-                  <CommentList comments  = {comments} user = {user} newsId = {id}/>
+                  <CommentList comments  = {comments} user = {user} newsId = {id} key = {id}/>
                   </Comment.Group>    
     
               </Grid.Column>
             </Grid.Row>
           </Grid>
         )
+                    
     }
 
 

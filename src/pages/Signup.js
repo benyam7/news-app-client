@@ -1,5 +1,5 @@
 import React , { useState, useContext} from 'react'
-import {Form, Button} from 'semantic-ui-react'
+import {Form, Icon, Header,Button} from 'semantic-ui-react'
 
 import gql from 'graphql-tag'
 import {useMutation } from '@apollo/react-hooks'
@@ -7,7 +7,7 @@ import {useMutation } from '@apollo/react-hooks'
 // Context api thing
 import {UserContext} from '../context/UserContext'
 
-// signup page
+
 function Signup(props) {
     const context = useContext(UserContext)
     // initial values for user
@@ -62,8 +62,12 @@ function Signup(props) {
      
     return (
         <div className = "form-container"  >
-          <Form onSubmit = {onSubmit} noValidate className = { loading && 'loading'}> 
-            <h1>Join</h1>
+          <Form onSubmit = {onSubmit} noValidate > 
+          
+          <Header as='h2' icon textAlign='center'>
+      <Icon name='newspaper outline' circular />
+      <Header.Content>Join Now</Header.Content>
+    </Header>
 
             <Form.Input
                 label = "User Name"
@@ -113,9 +117,14 @@ function Signup(props) {
                 error = {errors.confirmPassword}
             />
         
-            <Button type = "submit">
-               Join Now
-            </Button>
+          
+
+    <Button animated='fade' basic icon style = {{width: 300 , padding: 10}} loading = {loading} type = 'submit'>
+      <Button.Content visible>Join</Button.Content>
+      <Button.Content hidden style = {{color: "#871f1d"}}>
+        <Icon name='users' />
+      </Button.Content>
+    </Button>
           </Form>
         </div>
     )
