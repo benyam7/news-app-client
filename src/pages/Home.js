@@ -34,21 +34,28 @@ function Home() {
       <Header.Content>News Headlines</Header.Content>
     </Header>)}
                 </Grid.Row>
-                <Grid.Row className = "news-car-list" >
+                <Grid.Row >
                     {  
                      loading ? (
                       <Loader active inline='centered' size = 'tiny'   style = {{top: user &&250}} />
                               )
                               :
-                     <Transition.Group>
+                     <Transition.Group >
                        {
-                           news.data &&   news.data.map((n) => 
-                           (
-                           <Grid.Row key = {n.key} className = "ui container">
-                               <NewsCard news = { n } />
-                           </Grid.Row>
+                           news.data &&   news.data.map((n, i) => 
+                           
+                            {
+                            
+                              const c = <Grid.Row key = {n.key}  className = {i === 0 ? 'ui container news-card-first' : 'ui container news-card-rest'}>
+                              
+                              <NewsCard news = { n } />
+               
+                          </Grid.Row>
+                          return c
+                            } 
+                           
                            )
-                       ) 
+                        
                            }
                      </Transition.Group>
                     }

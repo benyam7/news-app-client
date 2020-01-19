@@ -118,10 +118,10 @@ i.icon.newspaper.outline:before {
 
 .fixed-menu {
   position: fixed;
-  right: 13%;
-  top: 34px;
-  margin-top: -2.5em;
+  width: 100% !important;
+  margin-top: 2.5em;
   z-index: 323;
+  top: -3em;
 }
 
 .fixed-menu-no-user {
@@ -161,4 +161,16 @@ i.icon.newspaper.outline:before {
 .comment-button-single {
   background: #fff !important;
   color: #871f1d !important;
+}
+
+.news-card-first {
+  margin-top: 13% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news-card-rest {
+  margin-top: 2% !important;
+  margin-left: auto;
+  margin-right: auto;
 }
